@@ -2,6 +2,8 @@ from streamlit_option_menu import option_menu
 from tokenize import Imagnumber
 import streamlit as st
 from PIL import Image
+from bokeh.models.widgets import Div
+import streamlit as st
 
 img=Image.open("a.gif")
 st.set_page_config(page_title="DEEP SEO",page_icon=img,layout="centered")
@@ -111,44 +113,52 @@ if selected == "About us":
 
     st.title("")
 
-    original_title = '<p style="font-family:serif; color:Black; font-size: 25px;">Cristobal Cepeda</p>'
+    original_title = '<p style="font-family:serif; color:Black; font-size: 25px;"> 🌼 Cristobal Cepeda</p>'
     st.markdown(original_title, unsafe_allow_html=True)
 
-    '''
-    ➡️ LinkedIn : https://www.linkedin.com/in/crist%C3%B3bal-cepeda-lagos/
+    def linkedin_url(name,a):
+        if st.button(f"{name}'s LinkedIn"):
+            js = "window.open(a)"
+            html = '<img src onerror="{}">'.format(js)
+            div = Div(text=html)
+            st.bokeh_chart(div)
 
-    ➡️ GitHub : https://github.com/Cris-CL/deep_seo
-    '''
+    def github_url(name, b):
+        if st.button(f"{name}'s GitHub"):
+            js = "window.open(b)"
+            html = '<img src onerror="{}">'.format(js)
+            div = Div(text=html)
+            st.bokeh_chart(div)
 
-    original_title = '<p style="font-family:serif; color:Black; font-size: 25px;">Elizabeth Kok</p>'
+    linkedin_url("Cris","https://www.linkedin.com/in/crist%C3%B3bal-cepeda-lagos/?locale=en_US")
+
+    github_url("Cris","https://github.com/Cris-CL/deep_seo")
+
+    st.write("")
+
+
+    original_title = '<p style="font-family:serif; color:Black; font-size: 25px;"> 🌼 Elizabeth Kok</p>'
     st.markdown(original_title, unsafe_allow_html=True)
 
-    st.markdown('''
+    linkedin_url("Elizabeth","www.linkedin.com/in/elizabeth-kok-9407331b6")
 
-    ➡️ LinkedIn: www.linkedin.com/in/elizabeth-kok-9407331b6
+    github_url("Elizabeth","https://github.com/Elizabeth-kok")
 
-    ➡️ GitHub : https://github.com/Elizabeth-kok
-    ''')
+    st.write("")
 
-    original_title = '<p style="font-family:serif; color:Black; font-size: 25px;">Kim Nayoung</p>'
+    original_title = '<p style="font-family:serif; color:Black; font-size: 25px;"> 🌼 Kim Nayoung</p>'
     st.markdown(original_title, unsafe_allow_html=True)
 
-    st.markdown('''
+    linkedin_url("Nayoung","www.linkedin.com/in/nayoung-kim-0589a8240")
 
-    ➡️ LinkedIn: www.linkedin.com/in/nayoung-kim-0589a8240
-
-    ➡️ GitHub : https://github.com/na0young124
-    ''')
+    github_url("Nayoung","https://github.com/na0young124")
 
 if selected == "Home":
     '''
     # DEEP SEO
-    ##
     '''
-    col1, col2, col3 = st.columns(3)
-
     st.markdown('''
-    Fill in the blanks below.
+    Fill in the details for your product.
     ''')
 
     title = st.text_input('Title')
@@ -233,7 +243,7 @@ if selected == "Home":
 
 
     '''
-    ## The predicted ranking for your Amazon product is ...
+    ↘️ Click "Submit" to get your product ranking
     '''
     if st.button('Submit'):
         # print is visible in the server output, not in the page
