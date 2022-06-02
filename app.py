@@ -116,23 +116,17 @@ if selected == "About us":
     original_title = '<p style="font-family:serif; color:Black; font-size: 25px;"> 🌼 Cristobal Cepeda</p>'
     st.markdown(original_title, unsafe_allow_html=True)
 
-    def linkedin_url(name,a):
-        if st.button(f"{name}'s LinkedIn"):
-            js = "window.open(a)"
-            html = '<img src onerror="{}">'.format(js)
-            div = Div(text=html)
-            st.bokeh_chart(div)
+    if st.button("Cris's LinkedIn"):
+        js = "window.open('https://www.linkedin.com/in/crist%C3%B3bal-cepeda-lagos/?locale=en_US')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
-    def github_url(name, b):
-        if st.button(f"{name}'s GitHub"):
-            js = "window.open(b)"
-            html = '<img src onerror="{}">'.format(js)
-            div = Div(text=html)
-            st.bokeh_chart(div)
-
-    linkedin_url("Cris","https://www.linkedin.com/in/crist%C3%B3bal-cepeda-lagos/?locale=en_US")
-
-    github_url("Cris","https://github.com/Cris-CL/deep_seo")
+    if st.button("Cris's GitHub"):
+        js = "window.open('https://github.com/Cris-CL/deep_seo')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
     st.write("")
 
@@ -140,18 +134,34 @@ if selected == "About us":
     original_title = '<p style="font-family:serif; color:Black; font-size: 25px;"> 🌼 Elizabeth Kok</p>'
     st.markdown(original_title, unsafe_allow_html=True)
 
-    linkedin_url("Elizabeth","www.linkedin.com/in/elizabeth-kok-9407331b6")
+    if st.button("Elizabeth's LinkedIn"):
+        js = "window.open('https://jp.linkedin.com/in/elizabeth-kok-9407331b6?trk=public_profile_browsemap')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
-    github_url("Elizabeth","https://github.com/Elizabeth-kok")
+    if st.button("Elizabeth's GitHub"):
+        js = "window.open('https://github.com/Elizabeth-kok')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
     st.write("")
 
     original_title = '<p style="font-family:serif; color:Black; font-size: 25px;"> 🌼 Kim Nayoung</p>'
     st.markdown(original_title, unsafe_allow_html=True)
 
-    linkedin_url("Nayoung","www.linkedin.com/in/nayoung-kim-0589a8240")
+    if st.button("Nayoung's LinkedIn"):
+        js = "window.open('https://www.linkedin.com/in/nayoung-kim-0589a8240')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
-    github_url("Nayoung","https://github.com/na0young124")
+    if st.button("Nayoung's GitHub"):
+        js = "window.open('https://github.com/na0young124')"  # New tab or window
+        html = '<img src onerror="{}">'.format(js)
+        div = Div(text=html)
+        st.bokeh_chart(div)
 
 if selected == "Home":
     '''
