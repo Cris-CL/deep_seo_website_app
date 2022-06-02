@@ -271,9 +271,9 @@ if selected == "Home":
         elif a=='rankseven':
             st.write("4/10 This image is alright. Try again!")
         elif a=='rankeight':
-            st.write("3/10 🥲 Try looking for better quality image")
+            st.write("3/10 🙈 Try looking for better quality image")
         elif a=='ranknine':
-            st.write("2/10 🥲 You might want to try other image.")
+            st.write("2/10 🙈 You might want to try other image.")
         else:
             st.write("1/10 🙈 This is not a good image. Please check if you input the correct image URL.")
 
