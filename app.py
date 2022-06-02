@@ -4,6 +4,7 @@ import streamlit as st
 from PIL import Image
 from bokeh.models.widgets import Div
 import streamlit as st
+import plotly.graph_objects as go
 
 img=Image.open("a.gif")
 st.set_page_config(page_title="DEEP SEO",page_icon=img,layout="centered")
@@ -219,13 +220,38 @@ if selected == "Home":
     # x= requests.get(new_url)
     # print (x.json()["Classification"])
 
+    # value_rank = 11 - 1 - int(x.json()["Classification"])
+    def image_graphic(val_rank):
+
+        def color_rank(rank):
+            if rank > 0 and rank < 6:
+                return 'red'
+            elif rank > 5 and rank <8:
+                return 'orange'
+            return 'green'
+
+        fig = go.Figure(go.Indicator(
+            mode = "gauge+number",
+            value = val_rank,
+            gauge = {'axis': {'range': [1, 10]},
+                        'bar': {'color':color_rank(val_rank)},
+                        'threshold': {'line': {'color': "black", 'width': 5},
+                                    'thickness': 1,
+                                    'value': val_rank}},
+            domain = {'x': [0, 1], 'y': [0, 1]},
+            title = {'text': "Listing rating"}))
+
+        fig.update_layout( autosize=False, width=300, height=300, margin=dict(l=40, r=40, b=40, t=40))
+
+        return st.plotly_chart(fig)
+
     def imageranking(a):
         if a=='rankone':
             st.write("10/10!! Perfect image!")
         elif a=='ranktwo':
             st.write("9/10! Good image!")
         elif a=='rankthree':
-            st.write("8/10!vThis image is really good!")
+            st.write("8/10! This image is really good!")
         elif a=='rankfour':
             st.write("7/10! This image is good enough.")
         elif a=='rankfive':
@@ -281,6 +307,37 @@ if selected == "Home":
         imageranking(c)
         st.write("## Image 3's result :")
         imageranking(d)
+
+
+        def overall_rating(a_1,b_1,c_1,d_1):
+            img_rating = {'rankone':10,
+                        'ranktwo':9,
+                        'rankthree':8,
+                        'rankfour':7,
+                        'rankfive':6,
+                        'ranksix':5,
+                        'rankseven':4,
+                        'rankeight':3,
+                        'ranknine':2,
+                        'rankten':1}
+            im_sum = img_rating.get(b_1) + img_rating.get(c_1) + img_rating.get(d_1)
+            img_avg = 0.3*(im_sum) / 3
+            txt_rat = 0.7*(11-int(a_1))
+            overall = img_avg + txt_rat
+            return overall
+
+        overall = overall_rating(a,b,c,d)
+
+
+
+        st.write(f"## Your product's info overall rating is {overall}")
+
+        image_graphic(overall)
+
+
+
+
+
 
         # st.write(x.json()["Classification"])
         # st.write(x.json()["Rank Image 1"])
