@@ -6,7 +6,7 @@ from bokeh.models.widgets import Div
 import streamlit as st
 import plotly.graph_objects as go
 
-img=Image.open("duck.jpeg")
+img=Image.open("duck.png")
 st.set_page_config(page_title="DEEP SEO",page_icon=img,layout="centered")
 
 # st.set_page_config(
@@ -257,9 +257,9 @@ if selected == "Home":
 
     def imageranking(a):
         if a=='rankone':
-            st.write("10/10!! Perfect image!")
+            st.write("10/10!! 💯 Perfect image!")
         elif a=='ranktwo':
-            st.write("9/10! Good image!")
+            st.write("9/10! 💯 Good image!")
         elif a=='rankthree':
             st.write("8/10! This image is really good!")
         elif a=='rankfour':
@@ -271,9 +271,9 @@ if selected == "Home":
         elif a=='rankseven':
             st.write("4/10 This image is alright. Try again!")
         elif a=='rankeight':
-            st.write("3/10 🥲 Try looking for better quality image")
+            st.write("3/10 🙈 Try looking for better quality image")
         elif a=='ranknine':
-            st.write("2/10 🥲 You might want to try other image.")
+            st.write("2/10 🙈 You might want to try other image.")
         else:
             st.write("1/10 🙈 This is not a good image. Please check if you input the correct image URL.")
 
@@ -291,9 +291,9 @@ if selected == "Home":
         d=x.json()["Rank Image 3"]
         st.write("## Your text result is :")
         if a=="1":
-            st.write("10/10! You have all the perfect words for your product!")
+            st.write("10/10! 💯 You have all the perfect words for your product!")
         elif a=="2":
-            st.write("9/10! Awesome!!")
+            st.write("9/10! 💯 Awesome!!")
         elif a=="3":
             st.write("8/10! Amazing!!")
         elif a=="4":
@@ -305,9 +305,9 @@ if selected == "Home":
         elif a=="7":
             st.write("4/10 You can do better than this!")
         elif a=="8":
-            st.write("3/10 🥲 Try harder!!")
+            st.write("3/10 😿  Try harder!!")
         elif a=="9":
-            st.write("2/10 🥲 Try harder!!!!")
+            st.write("2/10 😿  Try harder!!!!")
         else:
             st.write("1/10 You got the lowest score 🙈 Try again!")
 
