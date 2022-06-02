@@ -279,7 +279,7 @@ if selected == "Home":
 
 
     '''
-    ↘️ Click "Submit" to get your product ranking
+    ↘️ Click "Submit" to get your product rating
     '''
     if st.button('Submit'):
         # print is visible in the server output, not in the page
@@ -340,7 +340,7 @@ if selected == "Home":
 
 
 
-        st.write(f"## Your product's info overall rating is {overall}")
+        st.write(f"## Your product's DEEP SEO rating is {overall}")
 
         image_graphic(overall)
 
