@@ -135,7 +135,7 @@ if selected == "About us":
 
     st.markdown('''
 
-    ➡️ LinkedIn:
+    ➡️ LinkedIn: www.linkedin.com/in/nayoung-kim-0589a8240
 
     ➡️ GitHub : https://github.com/na0young124
     ''')
