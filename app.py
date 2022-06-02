@@ -235,11 +235,11 @@ if selected == "Home":
         elif a=='rankseven':
             st.write("4/10 This image is alright. Try again!")
         elif a=='rankeight':
-            st.write("3/10 Try looking for better quality image")
+            st.write("3/10 🥲 Try looking for better quality image")
         elif a=='ranknine':
-            st.write("2/10 You might want to try other image.")
+            st.write("2/10 🥲 You might want to try other image.")
         else:
-            st.write("1/10 🥲 This is not a good image. Please check if you input the correct image URL.")
+            st.write("1/10 🙈 This is not a good image. Please check if you input the correct image URL.")
 
 
     '''
@@ -269,11 +269,11 @@ if selected == "Home":
         elif a=="7":
             st.write("4/10 You can do better than this!")
         elif a=="8":
-            st.write("3/10 Try harder!!")
+            st.write("3/10 🥲 Try harder!!")
         elif a=="9":
-            st.write("2/10 Try harder!!!!")
+            st.write("2/10 🥲 Try harder!!!!")
         else:
-            st.write("1/10 You got the lowest score 🥲 Try again!")
+            st.write("1/10 You got the lowest score 🙈 Try again!")
 
         st.write("## Image 1's result :")
         imageranking(b)
