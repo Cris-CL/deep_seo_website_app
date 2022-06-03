@@ -241,7 +241,7 @@ if selected == "Home":
             'rankeight':3,
             'ranknine':2,
             'rankten':1}
-    def image_graphic(val_rank,wid,hei):
+    def image_graphic(val_rank,wid,hei,categ):
 
         def color_rank(rank):
             if rank > 0 and rank < 6:
@@ -259,7 +259,7 @@ if selected == "Home":
                                     'thickness': 1,
                                     'value': val_rank}},
             domain = {'x': [0, 1], 'y': [0, 1]},
-            title = {'text': "Listing rating"}))
+            title = {'text': f"{categ} rating"}))
 
         fig.update_layout( autosize=False, width=wid, height=hei, margin=dict(l=40, r=40, b=40, t=40))
 
@@ -320,22 +320,26 @@ if selected == "Home":
             st.write("2/10 😿  Try harder!!!!")
         elif a =='9':
             st.write("1/10 You got the lowest score 🙈 Try again!")
+        else:
+            st.write("1/10 You got the lowest score 🙈 Try again!")
 
 
 
+        if a =='10':
+            a ='9'
 
-        image_graphic((10-int(a)),200,200)
+        image_graphic((10-int(a)),200,200,'Text')
 
 
         st.write("## Image 1's result :")
         imageranking(b)
-        image_graphic(img_rating.get(b),200,200)
+        image_graphic(img_rating.get(b),200,200,'Image 1')
         st.write("## Image 2's result :")
         imageranking(c)
-        image_graphic(img_rating.get(c),200,200)
+        image_graphic(img_rating.get(c),200,200,'Image 2')
         st.write("## Image 3's result :")
         imageranking(d)
-        image_graphic(img_rating.get(d),200,200)
+        image_graphic(img_rating.get(d),200,200,'Image 3')
 
         def overall_rating(a_1,b_1,c_1,d_1):
 
@@ -351,4 +355,4 @@ if selected == "Home":
 
         st.write(f"## Your product's DEEP SEO rating is {round(overall,1)}")
 
-        image_graphic(overall,300,300)
+        image_graphic(overall,300,300,'Overall')
