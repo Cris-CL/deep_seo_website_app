@@ -231,7 +231,17 @@ if selected == "Home":
     # print (x.json()["Classification"])
 
     # value_rank = 11 - 1 - int(x.json()["Classification"])
-    def image_graphic(val_rank):
+    img_rating = {'rankone':10,
+            'ranktwo':9,
+            'rankthree':8,
+            'rankfour':7,
+            'rankfive':6,
+            'ranksix':5,
+            'rankseven':4,
+            'rankeight':3,
+            'ranknine':2,
+            'rankten':1}
+    def image_graphic(val_rank,wid,hei):
 
         def color_rank(rank):
             if rank > 0 and rank < 6:
@@ -251,7 +261,7 @@ if selected == "Home":
             domain = {'x': [0, 1], 'y': [0, 1]},
             title = {'text': "Listing rating"}))
 
-        fig.update_layout( autosize=False, width=300, height=300, margin=dict(l=40, r=40, b=40, t=40))
+        fig.update_layout( autosize=False, width=wid, height=hei, margin=dict(l=40, r=40, b=40, t=40))
 
         return st.plotly_chart(fig)
 
@@ -290,49 +300,48 @@ if selected == "Home":
         c=x.json()["Rank Image 2"]
         d=x.json()["Rank Image 3"]
         st.write("## Your text result is :")
-        if a=="1":
+        if a=="0":
             st.write("10/10! 💯 You have all the perfect words for your product!")
-        elif a=="2":
+        elif a=="1":
             st.write("9/10! 💯 Awesome!!")
-        elif a=="3":
+        elif a=="2":
             st.write("8/10! Amazing!!")
-        elif a=="4":
+        elif a=="3":
             st.write("7/10! Good enough!")
-        elif a=="5":
+        elif a=="4":
             st.write("6/10! Great!")
-        elif a=="6":
+        elif a=="5":
             st.write("5/10 Not bad!")
-        elif a=="7":
+        elif a=="6":
             st.write("4/10 You can do better than this!")
-        elif a=="8":
+        elif a=="7":
             st.write("3/10 😿  Try harder!!")
-        elif a=="9":
+        elif a=="8":
             st.write("2/10 😿  Try harder!!!!")
-        else:
+        elif a =='9':
             st.write("1/10 You got the lowest score 🙈 Try again!")
+
+
+
+
+        image_graphic((10-int(a)),200,200)
+
 
         st.write("## Image 1's result :")
         imageranking(b)
+        image_graphic(img_rating.get(b),200,200)
         st.write("## Image 2's result :")
         imageranking(c)
+        image_graphic(img_rating.get(c),200,200)
         st.write("## Image 3's result :")
         imageranking(d)
-
+        image_graphic(img_rating.get(d),200,200)
 
         def overall_rating(a_1,b_1,c_1,d_1):
-            img_rating = {'rankone':10,
-                        'ranktwo':9,
-                        'rankthree':8,
-                        'rankfour':7,
-                        'rankfive':6,
-                        'ranksix':5,
-                        'rankseven':4,
-                        'rankeight':3,
-                        'ranknine':2,
-                        'rankten':1}
+
             im_sum = img_rating.get(b_1) + img_rating.get(c_1) + img_rating.get(d_1)
             img_avg = 0.3*(im_sum) / 3
-            txt_rat = 0.7*(11-int(a_1))
+            txt_rat = 0.7*(10-int(a_1))
             overall = img_avg + txt_rat
             return overall
 
@@ -340,65 +349,6 @@ if selected == "Home":
 
 
 
-        st.write(f"## Your product's DEEP SEO rating is {overall}")
+        st.write(f"## Your product's DEEP SEO rating is {round(overall,1)}")
 
-        image_graphic(overall)
-
-
-
-
-
-
-        # st.write(x.json()["Classification"])
-        # st.write(x.json()["Rank Image 1"])
-        # st.write(x.json()["Rank Image 2"])
-        # st.write(x.json()["Rank Image 3"])
-
-# url = 'https://deepseofirst-5ost5gg5jq-ew.a.run.app/seo_eval'
-# urll="?title=" + data.get("title") + "&description=" + data.get("description") + "&feature=" + data.get("feature") + "&imageone=" + data.get("imageone") + "&imagetwo="+ data.get("imagetwo")+"&imagethree="+ data.get("imagethree")
-
-# """
-# data={'title': "fake title for a fake product",
-#     'description': "this description is awesome",
-#     'feature': "I have no features",
-#     'imageone': "https://cdn-image02.casetify.com/usr/4787/34787/~v3/22690451x2_iphone13_16003249.png.1000x1000-w.m80.jpg",
-#     'imagetwo': "https://m.media-amazon.com/images/I/81MLO3k15iL._AC_SL1500_.jpg",
-#     'imagethree': "https://m.media-amazon.com/images/I/71HiwDwAcoL._AC_SL1500_.jpg"}
-
-# url = 'https://deepseosecond-5ost5gg5jq-ew.a.run.app/seo_eval'
-# secondurl="https://deepseosecond-5ost5gg5jq-ew.a.run.app/seo_eval"
-# urll="?title=fake title for a fake product &description=this description is awesome&feature=I have no features&imageone=https://cdn-image02.casetify.com/usr/4787/34787/~v3/22690451x2_iphone13_16003249.png.1000x1000-w.m80.jpg&imagetwo=https://m.media-amazon.com/images/I/81MLO3k15iL._AC_SL1500_.jpg&imagethree=https://m.media-amazon.com/images/I/71HiwDwAcoL._AC_SL1500_.jpg"
-
-# urlll="?title=" + data.get("title") + " &description=" + data.get("description") + "&feature=" + data.get("feature") + "&imageone=" + data.get("imageone") + "&imagetwo="+ data.get("imagetwo")+"&imagethree="+ data.get("imagethree")
-
-
-# fullurl= url+urll
-# print(fullurl)
-
-# dict_fullurl= secondurl+urlll
-# print(dict_fullurl)
-
-# import requests
-# x= requests.get(dict_fullurl)
-
-# print("---------------------------------")
-# print (x)
-
-# print("---------------------------------")
-# print (x.json())
-
-# print("---------------------------------")
-# print (x.json()["Classification"])
-
-
-# # st.write('Best Selling product ever! :D')
-# # st.write(x.json()["Classification"])
-# # st.write(x.json()["Rank Image 1"])
-# # st.write(x.json()["Rank Image 2"])
-# # st.write(x.json()["Rank Image 3"])
-
-# # <Response [200]>
-# # ---------------------------------
-# # {'Classification': '10', 'Rank Image 1': 'rankten', 'Rank Image 2': 'rankfive', 'Rank Image 3': 'rankseven'}
-
-# """
+        image_graphic(overall,300,300)
